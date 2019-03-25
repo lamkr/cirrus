@@ -6,6 +6,9 @@ test_task:
     #- flutter channel master
     #- flutter upgrade
     
+  pesquisa:
+    find $ANDROID_HOME -name "sdkmanager*"
+    
   list_devices_script:
     avdmanager list
     
