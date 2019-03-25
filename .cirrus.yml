@@ -6,9 +6,6 @@ test_task:
     #- flutter channel master
     #- flutter upgrade
     
-  sdkmanager_list:
-    sdkmanager --list    
-    
   list_devices_script:
     avdmanager list
     
