@@ -7,6 +7,7 @@ test_task:
     #- flutter upgrade
     - cd $ANDROID_HOME/tools/bin
     - ls -l
+    - ./sdkmanager --list
     
   create_device_script:
     echo no | avdmanager create avd --force
