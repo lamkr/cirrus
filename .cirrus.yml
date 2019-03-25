@@ -1,44 +1,8 @@
-task:
-  container:
-    dockerfile: .ci/Dockerfile
-    cpu: 1
-    memory: 4G
-  upgrade_script:
-    #- flutter channel master
-    #- flutter upgrade
-    - git fetch origin master
-  #activate_script: pub global activate flutter_plugin_tools
-  matrix:
-    - name: publishable
-      script: ./script/check_publish.sh
-    - name: build-apks+java-test+drive-examples
-      start_emulator_background_script:
-      - $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window
-      wait_for_emulator_script: adb wait-for-device
-      script:
-        # Unsetting CIRRUS_CHANGE_MESSAGE and CIRRUS_COMMIT_MESSAGE as they
-        # might include non-ASCII characters which makes Gradle crash.
-        # See: https://github.com/flutter/flutter/issues/24935
-        # This is a temporary workaround until we figure how to properly configure
-        # a UTF8 locale on Cirrus (or until the Gradle bug is fixed).
-        # TODO(amirh): Set the locale to UTF8.
-        - echo "$CIRRUS_CHANGE_MESSAGE" > /tmp/cirrus_change_message.txt
-        - echo "$CIRRUS_COMMIT_MESSAGE" > /tmp/cirrus_commit_message.txt
-        - export CIRRUS_CHANGE_MESSAGE=""
-        - export CIRRUS_COMMIT_MESSAGE=""
-        - ./script/incremental_build.sh build-examples --apk
-        - ./script/incremental_build.sh java-test  # must come after apk build
-        - export CIRRUS_CHANGE_MESSAGE=`cat /tmp/cirrus_change_message.txt`
-        - export CIRRUS_COMMIT_MESSAGE=`cat /tmp/cirrus_commit_message.txt`
+container:
+  image: cirrusci/flutter:latest
 
-task:
-    - pod repo update
-    - git clone https://github.com/lamkr/cirrus.git
-    - git fetch origin master
-    - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
-    - flutter doctor
-    - pub global activate flutter_plugin_tools
-  build_script:
-    - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
-    - ./script/incremental_build.sh build-examples --ipa
-    - ./script/incremental_build.sh drive-examples
+test_task:
+  pub_cache:
+    folder: ~/.pub-cache
+  test_script: flutter test
+  

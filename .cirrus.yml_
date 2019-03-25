@@ -1,0 +1,29 @@
+task:
+  container:
+    dockerfile: .ci/Dockerfile
+    cpu: 1
+    memory: 4G
+  upgrade_script:
+    #- flutter channel master
+    #- flutter upgrade
+    #- git fetch origin master
+  #activate_script: pub global activate flutter_plugin_tools
+  #matrix:
+    #- name: publishable
+     # script: ./script/check_publish.sh
+    #- name: build-apks+java-test+drive-examples
+     # start_emulator_background_script:
+      #- $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window
+      #wait_for_emulator_script: adb wait-for-device
+
+task:
+    - pod repo update
+    - git clone https://github.com/lamkr/cirrus.git
+    - git fetch origin master
+    - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
+    - flutter doctor
+    - pub global activate flutter_plugin_tools
+  build_script:
+    - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
+    - ./script/incremental_build.sh build-examples --ipa
+    - ./script/incremental_build.sh drive-examples
