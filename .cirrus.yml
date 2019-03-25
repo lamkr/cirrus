@@ -5,9 +5,20 @@ test_task:
   upgrade_script:
     #- flutter channel master
     #- flutter upgrade
+    
+  create_device_script:
+    echo no | avdmanager create avd --force
+        -n test
+        -k "system-images;android-18;default;armeabi-v7a"
+  
   start_emulator_background_script:
-    - $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window
-    wait_for_emulator_script: adb wait-for-device
+    $ANDROID_HOME/emulator/emulator
+        -avd test
+        -no-audio
+        -no-window
+  
+  wait_for_emulator_script:
+    - adb wait-for-device
   
   pub_cache:
     folder: ~/.pub-cache
