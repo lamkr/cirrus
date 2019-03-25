@@ -2,6 +2,9 @@ container:
   image: cirrusci/flutter:latest
 
 test_task:
+  upgrade_script:
+    - flutter channel master
+    - flutter upgrade
   pub_cache:
     folder: ~/.pub-cache
   test_script: flutter test

@@ -1,7 +1,10 @@
+//import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-//import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cirrus/Objeto.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+final String nome_default = 'Luciano';
 
 void main() {
   group('Teste de integração no Cirrus CI', () {
@@ -19,7 +22,10 @@ void main() {
 
     test('reading', () async {
 			Objeto obj = new Objeto();
-      expect(obj.nome, equals('Objeto'));
+			await obj.salvar(nome_default);
+			String nome = await obj.ler();
+      expect(obj.nome, equals(nome_default));
     });
 	});
 }
+
