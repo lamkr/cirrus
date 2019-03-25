@@ -3,9 +3,14 @@ container:
 
 test_task:
   upgrade_script:
-    - flutter channel master
-    - flutter upgrade
+    #- flutter channel master
+    #- flutter upgrade
+  start_emulator_background_script:
+    - $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window
+    wait_for_emulator_script: adb wait-for-device
+  
   pub_cache:
     folder: ~/.pub-cache
+    
   test_script: flutter test
   
