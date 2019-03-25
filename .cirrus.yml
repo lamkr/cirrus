@@ -7,8 +7,7 @@ test_task:
     #- flutter upgrade
     
   sdkmanager_list:
-    $ANDROID_HOME/sdkmanager --list
-    #$ANDROID_HOME/toos/bin/sdkmanager --list
+    sdkmanager --list    
     
   list_devices_script:
     avdmanager list
