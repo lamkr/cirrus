@@ -6,6 +6,9 @@ test_task:
     #- flutter channel master
     #- flutter upgrade
     
+  list_devices_script:
+    avdmanager list
+    
   create_device_script:
     echo no | avdmanager create avd --force
         -n test
