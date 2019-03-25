@@ -6,16 +6,10 @@ test_task:
     #- flutter channel master
     #- flutter upgrade
     
-  pesquisa:
-    - find $ANDROID_HOME -name "sdkmanager*"    
-    
-  list_devices_script:
-    avdmanager list
-    
   create_device_script:
     echo no | avdmanager create avd --force
         -n test
-        -k "system-images;android-28;default;armeabi-v7a"
+        -k "system-images;android-28;default;default"
   
   start_emulator_background_script:
     $ANDROID_HOME/emulator/emulator
