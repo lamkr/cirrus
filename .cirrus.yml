@@ -7,7 +7,7 @@ test_task:
     #- flutter upgrade
     
   pesquisa:
-    find $ANDROID_HOME -name "sdkmanager*"
+    - find $ANDROID_HOME -name "sdkmanager*"    
     
   list_devices_script:
     avdmanager list
