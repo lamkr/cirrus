@@ -26,7 +26,10 @@ test_task:
   pub_cache:
     folder: ~/.pub-cache
     
-  test_script: 
+  test_script:
+    - pub cache repair
+    - pub upgrade
+    - pub deps    
     - flutter packages get
     - flutter test
   
