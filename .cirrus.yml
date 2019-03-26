@@ -28,6 +28,8 @@ test_task:
     folder: ~/.pub-cache
     
   test_script:
+    - pwd
+    - flutter clean
     #- pub cache repair
     - flutter packages upgrade 
     #- flutter packages get
