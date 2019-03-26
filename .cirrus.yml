@@ -1,5 +1,6 @@
 container:
-  image: cirrusci/flutter:latest
+  dockerfile: .ci/Dockerfile  
+  #image: cirrusci/flutter:latest
 
 test_task:
   upgrade_script:
