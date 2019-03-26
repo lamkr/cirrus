@@ -37,5 +37,5 @@ test_task:
     #- pub cache repair
     - flutter packages upgrade 
     - pub deps    
-    - flutter test
+    - flutter test test/Objeto_test.dart
   
