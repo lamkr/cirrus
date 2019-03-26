@@ -32,10 +32,11 @@ test_task:
   test_script:
     - pwd
     - ls -l
-    - flutter packages get
-    - flutter clean
+    #- flutter packages get
+    #- flutter clean
     #- pub cache repair
-    - flutter packages upgrade 
-    - pub deps    
-    - flutter test test/Objeto_test.dart
+    #- flutter packages upgrade 
+    #- pub deps    
+    #- flutter test test/Objeto_test.dart
+    - flutter drive --target=test_driver/app.dart
   
