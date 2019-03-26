@@ -25,6 +25,8 @@ dev_dependencies:
     sdk: flutter
   test: any
 
+  shared_preferences: ^0.5.1+2
+
 flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
