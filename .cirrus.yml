@@ -29,8 +29,8 @@ test_task:
     
   test_script:
     #- pub cache repair
-    - pub deps    
-    #- flutter packages get
     - flutter packages upgrade 
+    #- flutter packages get
+    - pub deps    
     - flutter test
   
