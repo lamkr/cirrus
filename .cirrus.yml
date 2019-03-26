@@ -3,7 +3,7 @@ container:
 
 test_task:
   upgrade_script:
-    #- flutter clean
+    #- flutter clean  
     #- flutter channel master
     #- flutter upgrade
     - cd $ANDROID_HOME/tools/bin
