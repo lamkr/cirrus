@@ -3,6 +3,7 @@ container:
 
 test_task:
   upgrade_script:
+    - flutter clean
     #- flutter channel master
     #- flutter upgrade
     - cd $ANDROID_HOME/tools/bin
@@ -27,7 +28,6 @@ test_task:
     folder: ~/.pub-cache
     
   test_script:
-    - flutter clean
     - pub cache repair
     - pub upgrade
     - pub deps    
