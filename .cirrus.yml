@@ -6,14 +6,14 @@ test_task:
     #- flutter clean  
     #- flutter channel master
     #- flutter upgrade
-    - cd $ANDROID_HOME/tools/bin
-    - ls -l
-    - ./sdkmanager "system-images;android-28;default;x86_64"
+    ##- cd $ANDROID_HOME/tools/bin
+    ##- ls -l
+    ##- ./sdkmanager "system-images;android-28;default;armeabi-v7a"
     
   create_device_script:
     echo no | avdmanager create avd --force
         -n test
-        -k "system-images;android-28;default;x86_64"
+        -k "system-images;android-28;default;armeabi-v7a"
         
   start_emulator_background_script:
     $ANDROID_HOME/emulator/emulator
@@ -29,6 +29,7 @@ test_task:
     
   test_script:
     - pwd
+    - ls -l
     - flutter clean
     #- pub cache repair
     - flutter packages upgrade 
