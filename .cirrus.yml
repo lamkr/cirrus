@@ -33,7 +33,7 @@ test_task:
     - pwd
     - ls -l
     #- flutter packages get
-    - flutter clean
+    #- flutter clean
     #- pub cache repair
     #- flutter packages upgrade 
     #- pub deps
