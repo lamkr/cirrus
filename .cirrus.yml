@@ -32,10 +32,10 @@ test_task:
   test_script:
     - pwd
     - ls -l
+    - flutter packages get
     - flutter clean
     #- pub cache repair
     - flutter packages upgrade 
-    #- flutter packages get
     - pub deps    
     - flutter test
   
