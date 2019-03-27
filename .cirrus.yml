@@ -40,5 +40,5 @@ test_task:
     #- pub deps
     #- flutter test test/Objeto_test.dart
     ##- flutter drive --observatory-port 8888 -v --target=test_driver/app.dart
-    - flutter run --observatory-port 8888 -v --target=test_driver/app.dart
+    - flutter drive --observatory-port 8888 --target=test_driver/app.dart
   
