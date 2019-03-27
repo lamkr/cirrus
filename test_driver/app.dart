@@ -10,9 +10,12 @@ import 'package:cirrus/main.dart' as app;
 
 void main() {
 	// This line enables the extension
+	print('enableFlutterDriverExtension()');
   enableFlutterDriverExtension();
 
   // Call the `main()` function of your app or call `runApp` with any widget you
   // are interested in testing.
+	print('app.main()');
   app.main();
+	print('saindo do main()');
 }
