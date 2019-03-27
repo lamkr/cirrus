@@ -23,6 +23,16 @@ test_task:
         -avd test
         -no-audio
         -no-window
+        -wipe-data
+        -no-snapshot
+        -camera-back none
+        -camera-front none
+        -memory 1024
+        -partition-size 1024
+        -show-kernel
+        -netdelay none
+        -no-boot-anim
+        -no-cache
   
   wait_for_emulator_script:
     - adb wait-for-device
@@ -39,8 +49,7 @@ test_task:
     #- flutter packages upgrade 
     #- pub deps
     #- flutter test test/Objeto_test.dart
-    ##- flutter drive --observatory-port 8888 -v --target=test_driver/app.dart
-    - flutter build apk
-    - adb install -r build/app/outputs/apk/app.apk
+    ##- flutter build apk
+    ##- adb install -r build/app/outputs/apk/app.apk
     - flutter drive --target=test_driver/app.dart
   
