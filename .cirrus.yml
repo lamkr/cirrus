@@ -24,7 +24,9 @@ test_task:
         -no-window
   
   wait_for_emulator_script:
-    - adb wait-for-device
+    #- adb wait-for-device
+    - adb start-server
+    - adb get-state
   
   pub_cache:
     folder: ~/.pub-cache
