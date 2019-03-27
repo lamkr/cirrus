@@ -39,5 +39,5 @@ test_task:
     #- flutter packages upgrade 
     #- pub deps
     #- flutter test test/Objeto_test.dart
-    - flutter drive -v --target=test_driver/app.dart
+    - flutter drive --observatory-port 8888 -v --target=test_driver/app.dart
   
