@@ -11,12 +11,12 @@ test_task:
     - ls -l
     ##- ./sdkmanager --list
     - export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
-    - ./sdkmanager "system-images;android-22;google_apis;x86"
+    - ./sdkmanager "system-images;android-22;google_apis;armeabi-v7a"
     
   create_device_script:
     echo no | avdmanager create avd --force
         -n test
-        -k "system-images;android-22;google_apis;x86"
+        -k "system-images;android-22;google_apis;armeabi-v7a"
         
   start_emulator_background_script:
     $ANDROID_HOME/emulator/emulator
