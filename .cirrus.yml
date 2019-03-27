@@ -33,6 +33,7 @@ test_task:
         -netdelay none
         -no-boot-anim
         -no-cache
+        -gpu off
   
   wait_for_emulator_script:
     - adb wait-for-device
