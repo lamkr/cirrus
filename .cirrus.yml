@@ -1,6 +1,6 @@
 container:
-  #dockerfile: .ci/Dockerfile  
-  image: cirrusci/flutter:latest
+  dockerfile: .ci/Dockerfile  
+  #image: cirrusci/flutter:latest
 
 test_task:
   upgrade_script:
@@ -10,8 +10,7 @@ test_task:
     - cd $ANDROID_HOME/tools/bin
     - ls -l
     ##- ./sdkmanager --list
-    - export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
-    - ./sdkmanager "system-images;android-22;google_apis;armeabi-v7a"
+    #- ./sdkmanager "system-images;android-22;google_apis;armeabi-v7a"
     
   create_device_script:
     echo no | avdmanager create avd --force
