@@ -2,6 +2,8 @@ FROM cirrusci/flutter:latest
 
 RUN touch ~/.android/repositories.cfg
 
+RUN sdkmanager --list
+
 RUN yes | sdkmanager \
     "platforms;android-28" \
     "platform-tools;28.0.2" \
