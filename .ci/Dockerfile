@@ -1,10 +1,12 @@
 FROM cirrusci/flutter:latest
 
+RUN --network host -p 1:65535
+
 RUN touch ~/.android/repositories.cfg
 
 RUN sdkmanager --list
 
-RUN yes | sdkmanager \
+# RUN yes | sdkmanager \
     "platforms;android-28" \
     "platform-tools;28.0.2" \
     "build-tools;28.0.3" \
