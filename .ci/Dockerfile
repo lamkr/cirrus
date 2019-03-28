@@ -1,6 +1,6 @@
 FROM cirrusci/flutter:latest
 
-RUN EXPOSE 1:30000/tcp
+EXPOSE 1:30000
 
 RUN touch ~/.android/repositories.cfg
 
