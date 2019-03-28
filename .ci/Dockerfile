@@ -1,6 +1,6 @@
 FROM cirrusci/flutter:latest
 
-RUN --network host -p 1:65535
+RUN EXPOSE 1:30000/tcp
 
 RUN touch ~/.android/repositories.cfg
 
